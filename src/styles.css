@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /*set at the start to lay out elemnts with ease*/
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle, #fad4f7, #669eff);
+    font-family: 'Source Code Pro', monospace;
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+    /*this sets min row height so that if number in 
+    calc is very large, the display can enlarge to fit, rest of the rows are set to a specific size*/
+}
+
+.calculator-grid > button { /*operator retrieves each button inside the calculator grid*/
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid #bbd2f8;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ffffffbd;
+}
+
+.calculator-grid > button:hover {
+    background-color: #ffffffee;
+}
+
+.calculator-grid > button:hover {
+    background-color: #fffffff1;
+}
+
+.span-two {
+    grid-column: span 2; /*makes AC and = span two columns*/
+}
+
+.display {
+    grid-column: 1 / -1; /*display takes up entire top row*/
+    background-color: rgba(41, 41, 41, 75%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    border-radius: 7px;
+    padding: 0.75rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.display .previous-operand {
+    color: rgba(255, 255, 255, 75%);
+    font-size: 1.5rem;
+}
+
+.display .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
